@@ -5,40 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q3 Financial Earnings Report</title>
 
-    <!-- 1. Load Reveal.js Core CSS -->
+    <!-- Reveal.js Core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-    <!-- 2. Load Theme (White is professional for finance) -->
+    <!-- Theme -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
-    <!-- 3. Load Code Highlighting Theme (Monokai) -->
+    <!-- Code Highlighting Theme -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
 
     <style>
-        /* EDGE CASE HANDLING: Fixed Footer */
-        /* Ensures email is visible regardless of slide content or transition state */
+        /* Fixed footer so your email is always visible */
         .fixed-footer {
             position: fixed;
             bottom: 10px;
             left: 10px;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             font-size: 14px;
             color: #888;
-            z-index: 1000; /* Keeps it above slide content */
-            pointer-events: none; /* Allows clicking through to slides */
+            z-index: 1000;
+            pointer-events: none;
         }
-        
-        /* Custom tweaks for financial formulas */
+
         .formula-box {
             background-color: #f8f9fa;
             border: 1px solid #ddd;
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
-    <!-- Persistent Email Footer -->
+    <!-- Persistent Email Footer (visible on all slides) -->
     <div class="fixed-footer">
         Presenter Email: 23f3000339@ds.study.iitm.ac.in
     </div>
@@ -46,166 +45,216 @@
     <div class="reveal">
         <div class="slides">
 
-            <!-- SLIDE 1: Title & Contact (Constraint: Email included) -->
+            <!-- SLIDE 1: Title & Contact (includes your email explicitly) -->
             <section>
                 <h1>Q3 Earnings Report</h1>
                 <h3>Technical Analysis & Forecasting</h3>
                 <p>
                     <small>Prepared by Technical Consultant</small><br>
-                    <!-- Explicit Link for interactivity -->
-                    <small><a href="mailto:23f3000339@ds.study.iitm.ac.in">23f3000339@ds.study.iitm.ac.in</a></small>
+                    <small>
+                        Contact: 
+                        <strong>23f3000339@ds.study.iitm.ac.in</strong><br>
+                        <a href="mailto:23f3000339@ds.study.iitm.ac.in">
+                            Email me
+                        </a>
+                    </small>
                 </p>
-                
-                <!-- Constraint: Speaker Notes -->
+
                 <aside class="notes">
-                    Good morning. I am the technical consultant for this project.
-                    My email is 23f3000339@ds.study.iitm.ac.in if you need the raw data files after this meeting.
+                    Welcome everyone. I’m the technical consultant presenting our Q3 earnings analysis.
+                    If anyone needs the raw data or the Jupyter notebooks, please email me at
+                    23f3000339@ds.study.iitm.ac.in after the session.
                 </aside>
             </section>
 
-            <!-- SLIDE 2: Markdown Content (Constraint: Markdown Slide) -->
-            <!-- Note: Textarea must be flush left to prevent extra indentation in markdown -->
+            <!-- SLIDE 2: Markdown Agenda (Markdown slide requirement) -->
             <section data-markdown>
                 <textarea data-template>
-                    ## Agenda (Markdown)
-                    
-                    This content is generated dynamically from Markdown.
+## Agenda (Markdown Slide)
 
-                    - **Q3 Revenue**: Analysis of inflow.
-                    - **Tech Migration**: Cloud infrastructure ROI.
-                    - **projections**: Q4 algorithmic modeling.
+This slide is generated from **Markdown**.
 
-                    ---
-                    
-                    > "Stability is the key to growth."
+1. Q3 Revenue Overview  
+2. Risk & Volatility Analysis  
+3. Tech Migration ROI  
+4. Q4 Forecast & Recommendations  
+
+---
+
+> "Stability and risk management drive sustainable growth."
                 </textarea>
+
                 <aside class="notes">
-                    I'm using Markdown here to quickly outline our agenda.
-                    We will focus heavily on the Tech Migration ROI.
+                    This slide shows the high-level agenda using Markdown.
+                    I’ll move quickly through revenue, then focus on risk and the ROI of our tech migration.
                 </aside>
             </section>
 
-            <!-- SLIDE 3: Mathematical Equations (Constraint: Math Formulas) -->
+            <!-- SLIDE 3: Financial Formula / Math (Math requirement) -->
             <section>
-                <h2>Option Pricing Model</h2>
-                <p>We used the <strong>Black-Scholes</strong> formula to hedge our currency risks:</p>
-                
+                <h2>Discounted Cash Flow (DCF)</h2>
+                <p>We value projected cash flows using the Discounted Cash Flow model:</p>
+
                 <div class="formula-box">
-                    \[ C = S_t N(d_1) - K e^{-rt} N(d_2) \]
+                    \[
+                        V_0 = \sum_{t=1}^{T} \frac{FCF_t}{(1 + r)^t}
+                    \]
                 </div>
 
-                <p style="font-size: 0.7em;">
-                    Where $d_1 = \frac{\ln(S_t/K) + (r + \frac{\sigma^2}{2})t}{\sigma\sqrt{t}}$
+                <p style="font-size: 0.8em;">
+                    Where:
+                    \[
+                        FCF_t = \text{Free Cash Flow at time } t,\quad
+                        r = \text{Discount rate},\quad
+                        T = \text{Projection horizon}
+                    \]
                 </p>
 
                 <aside class="notes">
-                    This is the standard Black-Scholes model.
-                    C is the call option price.
-                    S is the current stock price.
-                    We used this to calculate risk exposure.
+                    Here, V0 is the present value of all future free cash flows.
+                    The discount rate r incorporates both the risk-free rate and our risk premium.
+                    This model underlies our valuation of Q3 and projected Q4 performance.
                 </aside>
             </section>
 
-            <!-- SLIDE 4: Code Samples (Constraint: Code & Syntax Highlighting) -->
+            <!-- SLIDE 4: Code Sample with Syntax Highlighting -->
             <section>
-                <h2>Risk Calculation Script</h2>
-                <p>Python implementation for automated variance tracking:</p>
-                
-                <!-- Constraint: Syntax highlighting with line numbers -->
-                <pre><code class="python" data-line-numbers="1-2|4-5|7-8">
+                <h2>Risk Calculation Script (Python)</h2>
+                <p>We use the following Python function to compute Value at Risk (VaR):</p>
+
+                <pre><code class="language-python" data-line-numbers="1-4|6-9|11-13">
 import numpy as np
-import pandas as pd
 
-def calculate_var(portfolio, confidence_level=0.95):
-    # Calculate Value at Risk
-    mu = np.mean(portfolio)
-    sigma = np.std(portfolio)
-    
-    # Return calculated VaR
-    return mu - sigma * np.abs(np.percentile(portfolio, 1-confidence_level))
+def calculate_var(returns, confidence_level=0.95):
+    """
+    Simple historical VaR using percentile.
+    returns: np.array of portfolio returns
+    """
+    # Mean and standard deviation
+    mu = np.mean(returns)
+    sigma = np.std(returns)
+
+    # Quantile for given confidence level
+    cutoff = np.percentile(returns, (1 - confidence_level) * 100)
+
+    # VaR is the loss at the cutoff
+    var_value = mu - cutoff
+    return var_value
                 </code></pre>
-                
+
                 <aside class="notes">
-                    Here is the Python code we use on the server.
-                    Lines 4-5 calculate the mean and standard deviation.
-                    Line 8 returns the specific Value at Risk metric.
+                    This example uses a historical VaR approach.
+                    The returns array is our distribution of daily portfolio returns.
+                    We select a confidence level, compute the percentile cutoff,
+                    and interpret the VaR as the expected worst loss at that confidence.
                 </aside>
             </section>
 
-            <!-- SLIDE 5: Animations (Constraint: Fragments) -->
+            <!-- SLIDE 5: Animated Elements (Fragments) -->
             <section>
-                <h2>Quarterly Highlights</h2>
-                <p>Financial milestones achieved:</p>
-                
+                <h2>Q3 Highlights (Fragments)</h2>
+                <p>Key financial metrics:</p>
+
                 <ul>
-                    <!-- Fragment 1: Fades in -->
-                    <li class="fragment fade-in">Gross Margin: <strong>$1.2M</strong></li>
-                    
-                    <!-- Fragment 2: Fades in, then turns red to emphasize an issue -->
-                    <li class="fragment highlight-red">OpEx Increase: <strong>+15%</strong> (Infrastructure)</li>
-                    
-                    <!-- Fragment 3: Fades in, then moves up -->
-                    <li class="fragment fade-up">Client Retention: <strong>98.5%</strong></li>
-                    
-                    <!-- Fragment 4: Blur effect -->
-                    <li class="fragment highlight-blue">Net Profit: <strong>$450k</strong></li>
+                    <li class="fragment fade-in">
+                        Revenue Growth: <strong>+12.4%</strong> year-over-year
+                    </li>
+                    <li class="fragment fade-in-then-out">
+                        Operating Expenses: <strong>+8.1%</strong> (driven by cloud migration)
+                    </li>
+                    <li class="fragment fade-up">
+                        EBITDA Margin: <strong>21.7%</strong>
+                    </li>
+                    <li class="fragment highlight-red">
+                        FX Exposure: <strong>High</strong> in EUR and GBP segments
+                    </li>
+                    <li class="fragment highlight-green">
+                        Client Retention: <strong>98.5%</strong>
+                    </li>
                 </ul>
 
                 <aside class="notes">
-                    1. First, our Gross Margin was solid.
-                    2. However, notice the Red item: Operational Expenses increased due to cloud migration.
-                    3. Retention remains high.
-                    4. Resulting in a net profit of 450k.
+                    Reveal each bullet one at a time:
+                    1. Start with the positive revenue trend.
+                    2. Then mention the controlled increase in OpEx due to strategic investments.
+                    3. Highlight the healthy EBITDA margin.
+                    4. Emphasize FX exposure as a key risk we’re hedging.
+                    5. Finish with our strong client retention as a competitive advantage.
                 </aside>
             </section>
 
-            <!-- SLIDE 6: Conclusion (Constraint: Email again) -->
+            <!-- SLIDE 6: Option Pricing (Extra Math & Finance) -->
+            <section>
+                <h2>Option-Based Risk Hedging</h2>
+                <p>For currency risk, we reference the Black–Scholes call option formula:</p>
+
+                <div class="formula-box">
+                    \[
+                        C = S_0 N(d_1) - K e^{-rT} N(d_2)
+                    \]
+                    with
+                    \[
+                        d_1 = \frac{\ln\left(\frac{S_0}{K}\right) + \left(r + \frac{\sigma^2}{2}\right)T}
+                        {\sigma \sqrt{T}}, \quad
+                        d_2 = d_1 - \sigma \sqrt{T}
+                    \]
+                </div>
+
+                <aside class="notes">
+                    We don’t derive this in the meeting, but it’s important to mention that
+                    our FX hedging uses standard option pricing theory.
+                    The parameters are calibrated to market data, and the resulting pricing feeds into
+                    our risk dashboard.
+                </aside>
+            </section>
+
+            <!-- SLIDE 7: Closing (Email shown again clearly) -->
             <section>
                 <h2>Thank You</h2>
-                <p>Questions?</p>
-                <div style="margin-top: 50px; font-size: 0.8em; color: #555;">
-                    Contact:<br>
-                    <strong>23f3000339@ds.study.iitm.ac.in</strong>
+                <p>Questions or clarifications?</p>
+
+                <div style="margin-top: 40px; font-size: 0.9em; color: #555;">
+                    You can reach me at:<br>
+                    <strong>23f3000339@ds.study.iitm.ac.in</strong><br>
+                    <a href="mailto:23f3000339@ds.study.iitm.ac.in">
+                        Click here to send an email
+                    </a>
                 </div>
+
                 <aside class="notes">
-                    Thank you for listening.
-                    Once again, my email is on the screen if you need the deck.
+                    Wrap up and invite questions.
+                    Remind the audience that they can email me at
+                    23f3000339@ds.study.iitm.ac.in
+                    for the slide deck, raw data, or further technical details.
                 </aside>
             </section>
 
         </div>
     </div>
 
-    <!-- 4. Load Scripts -->
+    <!-- Reveal.js Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
 
-    <!-- 5. Initialize with all Plugins -->
     <script>
         Reveal.initialize({
-            // Display controls in bottom right
             controls: true,
-            // Display progress bar
             progress: true,
-            // Push each slide change to the browser history
             history: true,
-            // Vertical centering of slides
             center: true,
+            transition: 'slide',
 
-            // Transition style
-            transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-            // Load all required plugins
-            plugins: [ 
-                RevealMarkdown, 
-                RevealHighlight, 
-                RevealMath.KaTeX, // Using KaTeX for math rendering
-                RevealNotes 
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealMath.KaTeX,
+                RevealNotes
             ]
         });
     </script>
+
 </body>
 </html>
